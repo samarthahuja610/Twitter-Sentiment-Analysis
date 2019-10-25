@@ -1,0 +1,7 @@
+Hadoop dfs –mkdir –p /user/flume/tweets
+
+flume-ng agent -n TwitterAgent -f <location of created/edited conf file>
+
+hadoop dfs –ls /user/flume/tweets
+
+hadoop dfs –cat /user/flume/tweets/<flumeData file name>
