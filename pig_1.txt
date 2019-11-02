@@ -1,0 +1,8 @@
+REGISTER '/home/edureka/Desktop/elephant-bird-hadoop-compat-4.1.jar;
+REGISTER '/home/edureka/Desktop/elephant-bird-pig-4.1.jar';
+REGISTER '/home/edureka/Desktop/json-simple-1.1.1.jar';
+
+
+load_tweets = LOAD '/user/flume/tweets/' USING com.twitter.elephantbird.pig.load.JsonLoader('-nestedLoad') AS myMap;
+
+extract_details = FOREACH load_tweets GENERATE myMap#'id' as id,myMap#'text' as text;
